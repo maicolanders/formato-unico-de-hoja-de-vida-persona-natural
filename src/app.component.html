@@ -1,0 +1,176 @@
+<!-- Floating Action Buttons for Screen -->
+<div class="fixed bottom-6 right-6 flex flex-col gap-3 no-print z-50">
+  <button
+    type="button"
+    alt="Imprimir"
+    (click)="printForm()"
+    class="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-xl flex items-center justify-center transition-all cursor-pointer"
+    title="Imprimir"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
+      />
+    </svg>
+  </button>
+
+  <button
+    type="button"
+    alt="Exportar JSON"
+    (click)="service.exportJSON()"
+    class="bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-xl flex items-center justify-center transition-all cursor-pointer"
+    title="Exportar JSON"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+      />
+    </svg>
+  </button>
+
+  <!--
+  <button
+    type="button"
+    (click)="linkedinInput.click()"
+    class="bg-[#0077b5] hover:bg-[#005c8a] text-white p-4 rounded-full shadow-xl flex items-center justify-center transition-all cursor-pointer"
+    title="Importar de LinkedIn"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+      />
+    </svg>
+  </button>
+  <input
+    type="file"
+    #linkedinInput
+    (change)="service.importFromLinkedIn(linkedinInput.files!)"
+    accept=".csv"
+    multiple
+    class="hidden"
+  />
+-->
+
+  <button
+    type="button"
+    alt="Importar JSON"
+    (click)="fileInput.click()"
+    class="bg-orange-600 hover:bg-orange-700 text-white p-4 rounded-full shadow-xl flex items-center justify-center transition-all cursor-pointer"
+    title="Importar JSON"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+      />
+    </svg>
+  </button>
+  <input
+    type="file"
+    #fileInput
+    (change)="service.importJSON($event)"
+    accept=".json"
+    class="hidden"
+  />
+
+  <button
+    type="button"
+    alt="Borrar Todo"
+    (click)="service.clearForm()"
+    class="bg-red-600 hover:bg-red-700 text-white p-4 rounded-full shadow-xl flex items-center justify-center transition-all cursor-pointer"
+    title="Borrar Todo"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+      />
+    </svg>
+  </button>
+</div>
+
+<!-- Main Form Container -->
+<div class="form-container text-xs font-sans text-black relative">
+  <!-- Header Page 1 -->
+  <div class="p-8 pb-2">
+    <!-- Top Header Area -->
+    <div
+      class="border-2 border-black rounded-xl p-2 mb-4 flex justify-between items-start"
+    >
+      <div class="flex items-center gap-4 w-2/3">
+        <div class="w-16 h-20 flex-shrink-0 flex items-center justify-center">
+          <!-- Generic Shield SVG for visual similarity -->
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Coat_of_arms_of_Colombia.svg/1920px-Coat_of_arms_of_Colombia.svg.png"
+            width="200"
+          />
+        </div>
+        <div class="text-center w-full">
+          <h1 class="text-xl font-bold leading-tight">
+            FORMATO ÚNICO<br />HOJA DE VIDA
+          </h1>
+          <h2 class="text-lg font-bold">Persona Natural</h2>
+          <p class="text-[0.6rem] mt-1">
+            (Leyes 190 de 1995, 489 y 443 de 1998)
+          </p>
+        </div>
+      </div>
+      <div
+        class="w-1/3 border-l-2 border-black pl-2 flex flex-col h-full justify-between"
+      >
+        <span class="text-[0.6rem] font-bold block mb-1"
+          >ENTIDAD RECEPTORA</span
+        >
+        <textarea
+          [(ngModel)]="service.data().entidadReceptora"
+          class="uppercase-input input-field w-full h-16 resize-none bg-transparent"
+          placeholder="ESCRIBA AQUÍ..."
+        ></textarea>
+      </div>
+    </div>
+
+    <app-personal-info></app-personal-info>
+    <app-education></app-education>
+    <app-experience></app-experience>
+    <app-summary></app-summary>
+  </div>
+</div>

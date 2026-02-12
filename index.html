@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formato Hoja de Vida</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            screens: {
+              'print': {'raw': 'print'},
+            },
+            fontFamily: {
+              sans: ['Arial', 'Helvetica', 'sans-serif'],
+            },
+            fontSize: {
+              'xxs': '0.6rem',
+              'xs': '0.75rem',
+              'sm': '0.875rem',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      @media print {
+        @page {
+          size: Letter;
+          margin: 0.5cm;
+        }
+        body {
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+          background: white;
+        }
+        .no-print {
+          display: none !important;
+        }
+        .page-break {
+          page-break-before: always;
+        }
+        input, select, textarea {
+          border: none !important;
+          background: transparent !important;
+          resize: none;
+          padding: 0;
+        }
+        /* Hide placeholders in print */
+        ::placeholder {
+          color: transparent;
+        }
+        /* Ensure inputs show their values clearly */
+        input[type="text"], input[type="number"], input[type="email"], textarea {
+          font-weight: bold;
+          color: #000;
+        }
+        /* Checkbox simulation for print */
+        .print-checkbox-checked {
+          background-color: black !important;
+          color: white !important;
+        }
+        /* Remove shadows */
+        .shadow-lg, .shadow-md {
+          box-shadow: none !important;
+        }
+      }
+      
+      /* Screen styles */
+      body {
+        background-color: #f3f4f6; /* gray-100 */
+      }
+      .form-container {
+        max-width: 21.59cm; /* Letter width */
+        margin: 0 auto;
+        background: white;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .input-field {
+        width: 100%;
+        outline: none;
+        background: rgba(240, 240, 255, 0.5);
+        padding: 2px 4px;
+        font-weight: 500;
+        color: #1f2937;
+      }
+      .input-field:focus {
+        background: rgba(220, 220, 255, 0.8);
+      }
+      /* Uppercase specific fields */
+      .uppercase-input {
+        text-transform: uppercase;
+      }
+      .section-header {
+        background-color: black;
+        color: white;
+        border-radius: 9999px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 0.25rem;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "rxjs": "https://esm.sh/rxjs@^7.8.2?conditions=es2015",
+    "rxjs/operators": "https://esm.sh/rxjs@^7.8.2/operators?conditions=es2015",
+    "rxjs/ajax": "https://esm.sh/rxjs@^7.8.2/ajax?conditions=es2015",
+    "rxjs/webSocket": "https://esm.sh/rxjs@^7.8.2/webSocket?conditions=es2015",
+    "rxjs/testing": "https://esm.sh/rxjs@^7.8.2/testing?conditions=es2015",
+    "rxjs/fetch": "https://esm.sh/rxjs@^7.8.2/fetch?conditions=es2015",
+    "@angular/core": "https://esm.sh/@angular/core@^21.1.4?external=rxjs",
+    "@angular/compiler": "https://esm.sh/@angular/compiler@^21.1.4?external=rxjs",
+    "@angular/platform-browser": "https://esm.sh/@angular/platform-browser@^21.1.4?external=rxjs",
+    "@angular/common": "https://esm.sh/@angular/common@^21.1.4?external=rxjs",
+    "@angular/forms": "https://esm.sh/@angular/forms@^21.1.4?external=rxjs"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <app-root></app-root>
+  </body>
+</html>

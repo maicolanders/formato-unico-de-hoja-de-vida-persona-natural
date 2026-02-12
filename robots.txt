@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://maicolanders.github.io/formato-unico-de-hoja-de-vida-persona-natural/sitemap.xml
+
+# AI Crawler restrictions (Example: blocking highly aggressive ones if needed, but here we allow)
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
